@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin
+    xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.salonsuitesolutions.magtek"
+    version="1.1.2">
+
+    <name>MagTek</name>
+    <description>MagTek credit card scanner</description>
+    <license></license>
+    <keywords></keywords>
+
+    <repo>https://github.com/salonsuitesolutions/cordova-plugin-magtek.git</repo>
+    <issue>https://github.com/salonsuitesolutions/cordova-plugin-magtek/issues</issue>
+
+    <!--<dependency id="cordova-plugin-compat" version="^1.0.0" />-->
+
+    <js-module src="www/magtek.js" name="magtek">
+        <clobbers target="magtek" />
+    </js-module>
+
+    <platform name="ios">
+
+        <config-file target="config.xml" parent="/widget">
+            <feature name="MagTek">
+                <param name="ios-package" value="SSSMagTekPlugin" onload="true"/>
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/SSSMagTekPlugin.h" target-dir="MagTek" />
+        <source-file src="src/ios/SSSMagTekPlugin.m" target-dir="MagTek" />
+
+        <!-- TODO move from lib to src? -->
+        <source-file src="lib/libMTSCRA.a" framework="true" />
+        <header-file src="lib/MTSCRA.h" target-dir="MagTek" />
+
+        <!-- frameworks -->
+		<framework src="libstdc++.dylib"/>
+
+        <preference name="MICROPHONE_USAGE_DESCRIPTION" default="App would like to access the microphone to use the credit card swiper." />
+        <config-file target="*-Info.plist" parent="NSMicrophoneUsageDescription">
+            <string>$MICROPHONE_USAGE_DESCRIPTION</string>
+        </config-file>
+
+    </platform>
+
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/widget">
+            <feature name="MagTek">
+                <param name="android-package" value="com.salonsuitesolutions.magtek.MagTekPlugin"/>
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.RECORD_AUDIO" />
+            <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <service android:name="com.magtek.mobile.android.mtlib.MTAudioService" android:enabled="true"/>
+        </config-file>
+
+        <source-file src="src/android/MagTekPlugin.java"
+            target-dir="src/com/salonsuitesolutions/magtek"/>
+        <lib-file src="lib/mtscra.jar" target-dir="libs" />
+
+    </platform>
+
+</plugin>

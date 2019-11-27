@@ -1,0 +1,27 @@
+{
+  "name": "cordova-plugin-magtek",
+  "version": "1.1.2",
+  "description": "MagTek credit card scanner",
+  "cordova": {
+    "id": "com.salonsuitesolutions.magtek",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salonsuitesolutions/cordova-plugin-magtek.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android"
+  ],
+  "author": "Don Coleman <don.coleman@gmail.com>",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/salonsuitesolutions/cordova-plugin-magtek/issues"
+  },
+  "homepage": "https://github.com/salonsuitesolutions/cordova-plugin-magtek#readme"
+}

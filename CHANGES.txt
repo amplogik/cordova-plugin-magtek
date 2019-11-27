@@ -1,0 +1,11 @@
+= 1.1.0 =
+update Magtek sdk because libstdc++.6.0.9.dylib was removed from iOS 12
+    iOS SDK - PN 99510111 - v 133
+    https://www.magtek.com/support/udynamo?tab=software
+
+= 1.0.1 =
+Fix JavaScript error in magtek.js
+Fix Card.Name property on Android
+
+= 1.0.0 =
+Initial Release
